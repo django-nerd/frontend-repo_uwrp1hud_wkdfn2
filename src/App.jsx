@@ -6,11 +6,12 @@ import Projects from './components/Projects';
 import Blog from './components/Blog';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import BlogPage from './components/BlogPage';
+import { Routes, Route } from 'react-router-dom';
 
-function App() {
+function Home() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100">
-      <Navbar />
+    <>
       <Hero />
       <About />
       <Experience />
@@ -18,6 +19,18 @@ function App() {
       <Blog />
       <Testimonials />
       <Contact />
+    </>
+  );
+}
+
+function App() {
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-100">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<BlogPage />} />
+      </Routes>
       <footer className="py-10 border-t border-white/10 text-center text-slate-400">© {new Date().getFullYear()} Your Name — All rights reserved.</footer>
     </div>
   )
